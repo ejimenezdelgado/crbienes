@@ -12,7 +12,7 @@ Bienes raíces
 
 @section('content')
 
-{{Form::open(array('real_state', 'method' => 'post'))}}
+{{Form::open(array('action'=>'RealStateController@store', 'method' => 'post'))}}
 {{ csrf_field() }}
 
 <div class="form-group">

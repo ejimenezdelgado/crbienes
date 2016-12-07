@@ -13,6 +13,11 @@ Dashboard
 @section('content')
 
 <h1>Bienes de Costa Rica</h1>
+
+          <div class="container col-xs-12">
+                <a href="{{ action("RealStateController@create")}}" class="btn btn-success" role="button">Agregar</a>
+            </div>
+<br>
 @foreach($real_states as $result)
     <div class="container col-md-6">
         <div class="row">
@@ -23,11 +28,13 @@ Dashboard
                 <p>Nombre: {{$result->name}}</p>
                 <p>Descripción:{{$result->description}}</p>
             </div>
-          <div class="container col-md-4">
-                <a href="{{ action("RealStateController@create")}}" class="btn btn-success" role="button">Agregar</a>
-            </div>
             <div class="container col-md-4">
                 <a href="{{ action("RealStateController@edit",['id' => $result->id]) }}" class="btn btn-primary" role="button">Editar</a>
+            </div>
+            <div class="container col-md-4">
+                {{ Form::open(['method' => 'delete', 'route' => ['real_state.destroy', $result->id]]) }}
+                    {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                {{ Form::close() }}
             </div>
         </div>        
 </div>

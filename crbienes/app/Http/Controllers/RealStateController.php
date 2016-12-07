@@ -43,6 +43,7 @@ class RealStateController extends Controller
         $real_state->name=$request->name;
         $real_state->description=$request->description;
         $real_state->save();
+        return redirect()->action('RealStateController@index');
     }
 
     /**
@@ -71,6 +72,7 @@ class RealStateController extends Controller
         //
         $real_state=RealState::Find($id);
         return view("real_state.edit",[ 
+                                        'id' => $real_state->id,
                                         'name' => $real_state->name,
                                         'description' => $real_state->description,
                                       ]);
@@ -90,6 +92,7 @@ class RealStateController extends Controller
         $real_state->name=$request->name;
         $real_state->description=$request->description;
         $real_state->save();
+        return redirect()->action('RealStateController@index');
     }
 
     /**
@@ -102,5 +105,6 @@ class RealStateController extends Controller
     {
         //
         RealState::destroy($id);
+        return redirect()->action('RealStateController@index');
     }
 }
