@@ -23,6 +23,12 @@ Dashboard
                 <p>Nombre: {{$result->name}}</p>
                 <p>Descripción:{{$result->description}}</p>
             </div>
+          <div class="container col-md-4">
+                <a href="{{ action("RealStateController@create")}}" class="btn btn-success" role="button">Agregar</a>
+            </div>
+            <div class="container col-md-4">
+                <a href="{{ action("RealStateController@edit",['id' => $result->id]) }}" class="btn btn-primary" role="button">Editar</a>
+            </div>
         </div>        
 </div>
 <br>
