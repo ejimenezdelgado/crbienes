@@ -51,7 +51,6 @@ class RealStateController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -63,6 +62,11 @@ class RealStateController extends Controller
     public function edit($id)
     {
         //
+        $real_state=RealState::Find($id);
+        return view("real_state.edit",[ 
+                                        'name' => $real_state->name,
+                                        'description' => $real_state->description,
+                                      ]);
     }
 
     /**
@@ -75,6 +79,10 @@ class RealStateController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $real_state=RealState::Find($id);
+        $real_state->name=$request->name;
+        $real_state->description=$request->description;
+        $real_state->save();
     }
 
     /**
