@@ -7,10 +7,11 @@ Bienes raíces
 @section('menu')
     <li><a href="/">Inicio</a></li>
     <li><a href="#">Buscar</a></li>
-    <li><a href="/contact">Contactanos</a></li>
+    <li><a href="/contact">Contáctenos</a></li>
 @stop
 
 @section('content')
+
 {{Form::open(array('real_state', 'method' => 'post'))}}
 {{ csrf_field() }}
 
@@ -27,6 +28,8 @@ Bienes raíces
         <input id="description" type="text" class="form-control" name="description" value="{{old('description')}}" required autofocus>
     </div>
 </div>
+
+<input type="submit" class="btn btn-success">
 
 {{ Form::close() }}
 

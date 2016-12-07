@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\RealState;
 
 class RealStateController extends Controller
 {
@@ -35,7 +36,11 @@ class RealStateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Save the real_state
+        $real_state= new RealState;
+        $real_state->name=$request->name;
+        $real_state->description=$request->description;
+        $real_state->save();
     }
 
     /**

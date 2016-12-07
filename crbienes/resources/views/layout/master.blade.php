@@ -17,6 +17,7 @@
 	<script src="/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="/css/styles.css">
+	
 </head>
 <body>
 	<div class="row headTop">
