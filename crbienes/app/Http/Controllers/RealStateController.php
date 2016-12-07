@@ -15,7 +15,8 @@ class RealStateController extends Controller
      */
     public function index()
     {
-        return view("real_state.create");
+        $real_states= RealState::All();
+        return view('real_state.list',['real_states' => $real_states]);
     }
 
     /**
@@ -26,6 +27,7 @@ class RealStateController extends Controller
     public function create()
     {
         //
+        return view("real_state.create");
     }
 
     /**
@@ -51,6 +53,11 @@ class RealStateController extends Controller
      */
     public function show($id)
     {
+        $real_state=RealState::Find($id);
+        return view("real_state.edit",[ 
+                                        'name' => $real_state->name,
+                                        'description' => $real_state->description,
+                                      ]);
     }
 
     /**
@@ -94,5 +101,6 @@ class RealStateController extends Controller
     public function destroy($id)
     {
         //
+        RealState::destroy($id);
     }
 }
