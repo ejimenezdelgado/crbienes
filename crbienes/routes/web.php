@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('real_state', 'RealStateController');
+#Route::post('real_state', array('uses' => 'RealStateController@index'));
+
+
+
+
